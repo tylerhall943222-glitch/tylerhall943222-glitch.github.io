@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>yourlocalkey.shop</title>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Purchase keys for Roblox, Scripts & more." />
+</head>
+<body>
+  <!-- animated gradient background + floating shapes -->
+  <div id="bg">
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="bg-blob b3"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="left-nav">
+      <nav>
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#products">Products</a>
+      </nav>
+    </div>
+
+    <div class="logo-wrap">
+      <img src="logo.png" alt="logo" onerror="this.style.opacity=.2" class="logo">
+      <h1 class="brand">yourlocalkey.shop</h1>
+    </div>
+
+    <div class="right-nav">
+      <a class="nav-link" href="https://discord.gg/" target="_blank" rel="noopener">Discord</a>
+      <a class="nav-link cart-header" href="#" id="cartHeader">Cart (<span id="cartCountHeader">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <h2>yourlocalkey.shop</h2>
+        <p class="tagline">Purchase keys for Roblox, Scripts & more.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#products">Browse Products</a>
+          <a class="btn btn-ghost" id="openCartBtn">Open Cart</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products-section">
+      <h3 class="section-title">Products</h3>
+      <div id="productsGrid" class="products-grid" aria-live="polite">
+        <!-- product cards injected here -->
+      </div>
+      <div id="emptyHint" class="empty-hint">No products found.</div>
+    </section>
+  </main>
+
+  <!-- floating cart button -->
+  <button id="floatingCart" class="floating-cart" aria-label="Open Cart">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2zm1 0h8l1.75 5H9.25L8 4zm10 6H6l-1 6h14l1-6zM7 20a2 2 0 1 0 .001-3.999A2 2 0 0 0 7 20zm10 0a2 2 0 1 0 .001-3.999A2 2 0 0 0 17 20z"/></svg>
+    <span id="cartCountFloat">0</span>
+  </button>
+
+  <!-- Product View Modal -->
+  <div id="productModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-content">
+        <div class="modal-image">
+          <img id="modalImage" src="" alt="product image" onerror="this.style.opacity=.2">
+        </div>
+        <div class="modal-body">
+          <h4 id="modalTitle"></h4>
+          <p id="modalDescription" class="muted"></p>
+
+          <div id="optionsWrap" class="options-wrap">
+            <label class="muted">Options</label>
+            <div id="modalOptions" class="options"></div>
+          </div>
+
+          <div class="qty-row">
+            <label class="muted">Quantity</label>
+            <input type="number" id="modalQty" min="1" value="1" />
+          </div>
+
+          <div class="modal-actions">
+            <div class="price-display">Price: <span id="modalPrice">—</span></div>
+            <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer hidden" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-head">
+        <h4>Your Cart</h4>
+        <button id="closeCart" class="x">×</button>
+      </div>
+      <div id="cartItems" class="cart-items">
+        <!-- cart items go here -->
+      </div>
+      <div class="cart-footer">
+        <div class="totals">
+          <div>Subtotal</div>
+          <div id="cartSubtotal">$0.00</div>
+        </div>
+        <div class="cart-buttons">
+          <button id="clearCartBtn" class="btn btn-ghost">Clear</button>
+          <button id="payBtn" class="btn btn-primary">Pay (Demo)</button>
+        </div>
+        <p class="disclaimer muted">Demo checkout only — no transactions are processed.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> yourlocalkey.shop — Demo shop. No real payments.</small>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
